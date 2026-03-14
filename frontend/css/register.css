@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+header {
+    background: white;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+nav button {
+    margin-left: 15px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.login-btn {
+    background: #007bff;
+    color: white;
+}
+
+.register-btn {
+    background: #28a745;
+    color: white;
+}
+
+.about-btn {
+    background: #6c757d;
+    color: white;
+}
+
+/* REGISTER CONTAINER */
+.register-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.register-box {
+    background: white;
+    padding: 35px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.register-box h2 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.register-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-box input,
+.register-box select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.register-box input:focus,
+.register-box select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.register-box button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 15px;
+}
+
+.register-box button:hover {
+    background: #0056b3;
+}
+
+.register-box p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-box a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: white;
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav button {
+        margin: 5px;
+    }
+
+    .register-container {
+        padding: 20px;
+    }
+
+    .register-box {
+        padding: 25px;
+    }
+}

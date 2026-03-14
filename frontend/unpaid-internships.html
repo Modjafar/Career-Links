@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unpaid Internships | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+                <button class="about-btn" onclick="goAbout()">About Us</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Unpaid Internship Platforms</h1>
+        <p>Gain experience through unpaid internship opportunities</p>
+    </section>
+
+    <!-- INTERNSHIPS LIST -->
+    <section class="section">
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBU6nyO0O3tEB5m_xwDaL49dac4HXW1Jtrw&s"
+                    alt="UNICEF">
+                <h3>UNICEF Internships</h3>
+                <p>Child rights internships</p>
+                <button onclick="apply('https://www.unicef.org/careers/internships')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRURvhUEY1bglcRQCfGOL6ddVwHkOf2njCekA&s"
+                    alt="WHO">
+                <h3>WHO Internships</h3>
+                <p>Health sector internships</p>
+                <button onclick="apply('https://www.who.int/careers/internship-programme')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Flag-United-Nations-Logo.jpg" alt="UN">
+                <h3>United Nations</h3>
+                <p>UN internships program</p>
+                <button onclick="apply('https://careers.un.org/lbw/home.aspx?viewtype=IP')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNt2dcHwjf_ROGR2WM1JHPQuOQgq6FsOs2VA&s"
+                    alt="NGOs">
+                <h3>Local NGOs</h3>
+                <p>Non-profit internships</p>
+                <button onclick="apply('https://www.idealist.org/en/internships')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/free-vector/gradient-teamwork-logo-template_23-2149494771.jpg"
+                    alt="Research">
+                <h3>Research Internships</h3>
+                <p>Academic research opportunities</p>
+                <button onclick="apply('https://www.internships.com')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://pulivarthigroup.com/wp-content/uploads/2023/12/pulivarthigroup-logo.png"
+                    alt="Pulivarthi">
+                <h3>Pulivarthi Group</h3>
+                <p>Healthcare staffing internships</p>
+                <button onclick="apply('https://www.pulivarthigroup.com/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>

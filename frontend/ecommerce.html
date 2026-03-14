@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Domain | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+                <button class="about-btn" onclick="goAbout()">About Us</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- DOMAIN TITLE -->
+    <section class="hero">
+        <h1>🛒 E-Commerce</h1>
+        <p>Explore internships, courses, and jobs in Amazon, Shopify, Digital Sales & More</p>
+    </section>
+
+    <!-- PAID INTERNSHIPS SECTION -->
+    <section class="section">
+        <h2>💼 Paid Internships</h2>
+        <p class="section-desc">Get paid internship opportunities from top e-commerce companies</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+                <h3>Amazon</h3>
+                <p>E-commerce and logistics internships</p>
+                <button onclick="apply('https://www.amazon.jobs/en/teams/internships-for-students')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn.freebiesupply.com/logos/large/2x/flipkart-logo-png-transparent.png"
+                    alt="Flipkart">
+                <h3>Flipkart</h3>
+                <p>Digital retail internships</p>
+                <button onclick="apply('https://www.flipkartcareers.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn.worldvectorlogo.com/logos/myntra-1.svg" alt="Myntra">
+                <h3>Myntra</h3>
+                <p>Fashion e-commerce internships</p>
+                <button onclick="apply('https://careers.myntra.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/1280px-Shopify_logo_2018.svg.png"
+                    alt="Shopify">
+                <h3>Shopify</h3>
+                <p>E-commerce platform internships</p>
+                <button onclick="apply('https://www.shopify.com/careers')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://1000logos.net/wp-content/uploads/2017/05/Walmart-Logo.png" alt="Walmart">
+                <h3>Walmart</h3>
+                <p>Retail e-commerce internships</p>
+                <button onclick="apply('https://careers.walmart.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://www.citypng.com/public/uploads/preview/transparent-hd-paypal-logo-701751694777788ilpzr3lary.png"
+                    alt="PayPal">
+                <h3>PayPal</h3>
+                <p>Fintech internships</p>
+                <button onclick="apply('https://careers.pypl.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://static.vecteezy.com/system/resources/previews/014/018/563/non_2x/amazon-logo-on-transparent-background-free-vector.jpg"
+                    alt="Amazon">
+                <h3>Amazon Pay</h3>
+                <p>Digital payments internships</p>
+                <button onclick="apply('https://www.amazon.jobs/en/teams.amazon-pay')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Meta-Logo.png/1280px-Meta-Logo.png"
+                    alt="Meta">
+                <h3>Meta (Facebook)</h3>
+                <p>Digital advertising internships</p>
+                <button onclick="apply('https://www.metacareers.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1280px-Google_2015_logo.svg.png"
+                    alt="Google">
+                <h3>Google</h3>
+                <p>Digital marketing internships</p>
+                <button onclick="apply('https://careers.google.com/students/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://1000logos.net/wp-content/uploads/2017/05/Walmart-Logo.png" alt="Walmart">
+                <h3>Walmart Global Tech</h3>
+                <p>Tech internships at Walmart</p>
+                <button onclick="apply('https://careers.walmart.com/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNPAID INTERNSHIPS SECTION -->
+    <section class="section">
+        <h2>🎓 Unpaid Internships</h2>
+        <p class="section-desc">Gain experience through unpaid internship opportunities</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://internshala.com//static/images/internshala_og_image.jpg" alt="Internshala">
+                <h3>Internshala</h3>
+                <p>E-commerce internships</p>
+                <button onclick="apply('https://internshala.com/internships/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                    alt="LinkedIn">
+                <h3>LinkedIn Internships</h3>
+                <p>Find e-commerce internships</p>
+                <button onclick="apply('https://www.linkedin.com/jobs/internships/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Indeed_logo.png" alt="Indeed">
+                <h3>Indeed Internships</h3>
+                <p>Search e-commerce internships</p>
+                <button onclick="apply('https://www.indeed.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://www.vhv.rs/dpng/d/460-4609441_glassdoor-logo-png-vector-glassdoor-logo-transparent-png.png"
+                    alt="Glassdoor">
+                <h3>Glassdoor</h3>
+                <p>Research company internships</p>
+                <button onclick="apply('https://www.glassdoor.com/Job/jobs.htm')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Shopify_logo.svg" alt="Shopify">
+                <h3>Shopify Partners</h3>
+                <p>E-commerce development internships</p>
+                <button onclick="apply('https://www.shopify.com/partners')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAID COURSES SECTION -->
+    <section class="section">
+        <h2>📚 Paid Online Courses</h2>
+        <p class="section-desc">Enhance your e-commerce skills with paid courses</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/1280px-Shopify_logo_2018.svg.png"
+                    alt="Shopify">
+                <h3>Shopify Academy</h3>
+                <p>E-commerce business courses</p>
+                <button onclick="apply('https://www.shopify.com/academy')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Coursera_logo_%282020%29.svg/1280px-Coursera_logo_%282020%29.svg.png"
+                    alt="Coursera">
+                <h3>Coursera</h3>
+                <p>Digital marketing courses</p>
+                <button onclick="apply('https://www.coursera.org/browse/marketing/digital-marketing')">Enroll
+                    Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.seeklogo.com/logo-png/40/1/udemy-logo-png_seeklogo-409219.png" alt="Udemy">
+                <h3>Udemy</h3>
+                <p>E-commerce and dropshipping courses</p>
+                <button onclick="apply('https://www.udemy.com/topic/ecommerce/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/500px-Google_%22G%22_logo.svg.png"
+                    alt="Google">
+                <h3>Google Digital Garage</h3>
+                <p>Digital marketing certification</p>
+                <button onclick="apply('https://learndigital.withgoogle.com/digitalgarage')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/EdX_Logo.PNG" alt="edX">
+                <h3>edX</h3>
+                <p>Supply chain courses</p>
+                <button onclick="apply('https://www.edx.org/course/subject/supply-chain-management')">Enroll
+                    Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Simplilearn_logo.png/960px-Simplilearn_logo.png"
+                    alt="Simplilearn">
+                <h3>Simplilearn</h3>
+                <p>Digital marketing course</p>
+                <button onclick="apply('https://www.simplilearn.com/digital-marketing-courses')">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE COURSES SECTION -->
+    <section class="section">
+        <h2>🆓 Free Online Courses</h2>
+        <p class="section-desc">Learn e-commerce skills for free</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://images.seeklogo.com/logo-png/46/2/google-digital-garage-logo-png_seeklogo-463925.png"
+                    alt="Google Digital Garage">
+                <h3>Google Digital Garage</h3>
+                <p>Free digital marketing basics</p>
+                <button onclick="apply('https://grow.google/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/500px-Google_%22G%22_logo.svg.png"
+                    alt="Google">
+                <h3>Google Skillshop</h3>
+                <p>Free Google Ads certification</p>
+                <button onclick="apply('https://skillshop.extrado.com/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/FreeCodeCamp_logo.png" alt="freeCodeCamp">
+                <h3>freeCodeCamp</h3>
+                <p>Web development for e-commerce</p>
+                <button onclick="apply('https://www.freecodecamp.org/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Khan_Academy_logo_%282018%29.svg/1280px-Khan_Academy_logo_%282018%29.svg.png"
+                    alt="Khan Academy">
+                <h3>Khan Academy</h3>
+                <p>Free marketing courses</p>
+                <button onclick="apply('https://www.khanacademy.org/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/f/fc/Study_Webs_of_Active-Learning_for_Young_Aspiring_Minds_%28SWAYAM%29_logo.png"
+                    alt="SWAYAM">
+                <h3>SWAYAM</h3>
+                <p>Free e-commerce courses</p>
+                <button onclick="apply('https://swayam.gov.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://archive.nptel.ac.in/assets/nptel_assets/images/nptel-logo.png" alt="NPTEL">
+                <h3>NPTEL</h3>
+                <p>Free e-commerce courses</p>
+                <button onclick="apply('https://nptel.ac.in/')">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOBS SECTION -->
+    <section class="section">
+        <h2>💼 Jobs</h2>
+        <p class="section-desc">Find your dream job in E-Commerce</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Jobs">
+                <h3>Amazon Jobs</h3>
+                <p>E-commerce and tech jobs</p>
+                <button onclick="apply('https://www.amazon.jobs/en/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn.freebiesupply.com/logos/large/2x/flipkart-logo-png-transparent.png"
+                    alt="Flipkart">
+                <h3>Flipkart Careers</h3>
+                <p>Jobs at Flipkart</p>
+                <button onclick="apply('https://www.flipkartcareers.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn.worldvectorlogo.com/logos/myntra-1.svg" alt="Myntra">
+                <h3>Myntra Careers</h3>
+                <p>Fashion tech jobs</p>
+                <button onclick="apply('https://careers.myntra.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                    alt="LinkedIn Jobs">
+                <h3>LinkedIn Jobs</h3>
+                <p>Find e-commerce jobs</p>
+                <button onclick="apply('https://www.linkedin.com/jobs/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Indeed_logo.png" alt="Indeed">
+                <h3>Indeed Jobs</h3>
+                <p>Search e-commerce positions</p>
+                <button onclick="apply('https://www.indeed.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Naukri.png" alt="Naukri">
+                <h3>Naukri</h3>
+                <p>E-commerce jobs in India</p>
+                <button onclick="apply('https://www.naukri.com/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+    <script src="js/domain.js"></script>
+</body>
+
+</html>

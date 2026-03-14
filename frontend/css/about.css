@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: white;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+nav button {
+    margin-left: 15px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.login-btn {
+    background: #007bff;
+    color: white;
+}
+
+.register-btn {
+    background: #28a745;
+    color: white;
+}
+
+.about-btn {
+    background: #6c757d;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* SECTIONS */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.intro {
+    background: white;
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.intro p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* MISSION & VISION */
+.mission-vision {
+    background: #f8f9fa;
+}
+
+.mission-vision .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.mv-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.mv-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.mv-card p {
+    line-height: 1.6;
+}
+
+/* SERVICES */
+.services {
+    background: white;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.services>.container>p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.service-item p {
+    color: #666;
+}
+
+/* BENEFITS */
+.benefits {
+    background: #f8f9fa;
+}
+
+.benefits h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #007bff;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.benefit-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.benefit-item h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-align: center;
+}
+
+.benefit-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefit-item li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.benefit-item li:last-child {
+    border-bottom: none;
+}
+
+/* TEAM */
+.team {
+    background: white;
+}
+
+.team h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.team>.container>p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-avatar {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.team-member h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.team-member p:first-of-type {
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.team-member p:last-of-type {
+    color: #777;
+    font-size: 14px;
+}
+
+/* CONTACT */
+.contact {
+    background: #f8f9fa;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.contact>.container>p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.contact-item {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.contact-item p {
+    color: #666;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: white;
+    margin-top: 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav button {
+        margin: 5px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .container {
+        padding: 40px 20px;
+    }
+
+    .mission-vision .container {
+        flex-direction: column;
+    }
+
+    .benefit-grid,
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Courses | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+                <button class="about-btn" onclick="goAbout()">About Us</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Free Online Courses</h1>
+        <p>Learn for free from top platforms</p>
+    </section>
+
+    <!-- COURSES LIST -->
+    <section class="section">
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://images.seeklogo.com/logo-png/46/2/google-digital-garage-logo-png_seeklogo-463925.png"
+                    alt="Google Digital Garage">
+                <h3>Google Digital Garage</h3>
+                <p>Free digital skills training</p>
+                <button onclick="apply('https://grow.google')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CS50_orange_logo.svg/1200px-CS50_orange_logo.svg.png"
+                    alt="Harvard CS50">
+                <h3>Harvard CS50</h3>
+                <p>Introduction to Computer Science</p>
+                <button onclick="apply('https://cs50.harvard.edu')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/FreeCodeCamp_logo.png/920px-FreeCodeCamp_logo.png"
+                    alt="freeCodeCamp">
+                <h3>freeCodeCamp</h3>
+                <p>Free web development courses</p>
+                <button onclick="apply('https://www.freecodecamp.org')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/W3Schools_logo.svg/1280px-W3Schools_logo.svg.png"
+                    alt="W3Schools">
+                <h3>W3Schools</h3>
+                <p>Free web tutorials</p>
+                <button onclick="apply('https://www.w3schools.com/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/f/fc/Study_Webs_of_Active-Learning_for_Young_Aspiring_Minds_%28SWAYAM%29_logo.png"
+                    alt="SWAYAM">
+                <h3>SWAYAM</h3>
+                <p>Free courses by Government of India</p>
+                <button onclick="apply('https://swayam.gov.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Khan_Academy_logo_%282018%29.svg/1280px-Khan_Academy_logo_%282018%29.svg.png"
+                    alt="Khan Academy">
+                <h3>Khan Academy</h3>
+                <p>Free educational courses</p>
+                <button onclick="apply('https://www.khanacademy.org/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://archive.nptel.ac.in/assets/nptel_assets/images/nptel-logo.png" alt="NPTEL">
+                <h3>NPTEL</h3>
+                <p>Free engineering courses</p>
+                <button onclick="apply('https://nptel.ac.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn01.alison-static.net/public/html/site/img/media-kit/alison-logo-primary.jpg"
+                    alt="Alison">
+                <h3>Alison</h3>
+                <p>Free online courses</p>
+                <button onclick="apply('https://alison.com/')">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>

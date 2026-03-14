@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paid Courses | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+                <button class="about-btn" onclick="goAbout()">About Us</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Paid Online Courses</h1>
+        <p>Enhance your skills with paid courses from top platforms</p>
+    </section>
+
+    <!-- COURSES LIST -->
+    <section class="section">
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://1000logos.net/wp-content/uploads/2022/06/Coursera-Logo.jpg" alt="Coursera">
+                <h3>Coursera</h3>
+                <p> certifications from top universities</p>
+                <button onclick="apply('https://www.coursera.org')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://static.vecteezy.com/system/resources/previews/046/437/277/non_2x/udemy-transparent-logo-free-png.png"
+                    alt="Udemy">
+                <h3>Udemy</h3>
+                <p>Wide range of courses</p>
+                <button onclick="apply('https://www.udemy.com')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/EdX_Logo.PNG" alt="edX">
+                <h3>edX</h3>
+                <p> courses from MIT, Harvard</p>
+                <button onclick="apply('https://www.edx.org')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://www.vhv.rs/dpng/d/459-4598846_transparent-skillshare-logo-hd-png-download.png"
+                    alt="Skillshare">
+                <h3>Skillshare</h3>
+                <p>Creative courses</p>
+                <button onclick="apply('https://www.skillshare.com/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Udacity_Logo_2024.png" alt="Udacity">
+                <h3>Udacity</h3>
+                <p>Nanodegrees in tech fields</p>
+                <button onclick="apply('https://www.udacity.com/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://seekvectorlogo.com/wp-content/uploads/2022/03/masterclass-vector-logo-2022.png"
+                    alt="MasterClass">
+                <h3>MasterClass</h3>
+                <p>Learn from industry experts</p>
+                <button onclick="apply('https://www.masterclass.com/')">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+const express = require("express");
+const User = require("../models/User.js");
+const bcrypt = require("bcrypt");
+
+const router = express.Router();
+
+// Register
+router.post("/register", async (req, res) => {
+    try {
+        const { name, email, password, role } = req.body;
+
+        console.log("Registration attempt:", { name, email, role });
+
+        if (!name || !email || !password || !role) {
+            console.log("Missing required fields");
+            return res.status(400).json({ message: "All fields are required" });
+        }
+
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            console.log("User already exists:", email);
+            return res.status(400).json({ message: "User already exists" });
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = new User({ name, email, password: hashedPassword, role });
+        await user.save();
+
+        console.log("User registered successfully:", email);
+        res.json({ message: "User registered successfully" });
+    } catch (error) {
+        console.error("Registration error:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+// Login
+router.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        console.log("Login attempt:", { email });
+
+        if (!email || !password) {
+            console.log("Missing email or password");
+            return res.status(400).json({ success: false, message: "Email and password are required" });
+        }
+
+        const user = await User.findOne({ email });
+        if (!user) {
+            console.log("User not found:", email);
+            return res.status(400).json({ success: false, message: "Invalid email or password" });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            console.log("Invalid password for:", email);
+            return res.status(400).json({ success: false, message: "Invalid email or password" });
+        }
+
+        console.log("Login successful for:", email);
+
+        // Return user data after successful login
+        res.json({
+            success: true,
+            message: "Login successful",
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role
+            }
+        });
+    } catch (error) {
+        console.error("Login error:", error);
+        res.status(500).json({ success: false, message: "Server error" });
+    }
+});
+
+// Internships
+router.get("/internships", (req, res) => {
+    const type = req.query.type; // paid / unpaid
+
+    const internships = {
+        paid: [
+            { title: "Google Internship", company: "Google" },
+            { title: "Microsoft Internship", company: "Microsoft" }
+        ],
+        unpaid: [
+            { title: "Startup Internship", company: "Local Startup" }
+        ]
+    };
+
+    res.json(internships[type] || []);
+});
+
+// Courses
+router.get("/courses", (req, res) => {
+    const type = req.query.type;
+
+    const courses = {
+        paid: [
+            { title: "Full Stack Course", platform: "Udemy" }
+        ],
+        unpaid: [
+            { title: "HTML & CSS", platform: "FreeCodeCamp" }
+        ]
+    };
+
+    res.json(courses[type] || []);
+});
+
+// Jobs
+router.get("/jobs", (req, res) => {
+    res.json([
+        { title: "Frontend Developer", company: "Amazon" },
+        { title: "Backend Developer", company: "Infosys" }
+    ]);
+});
+
+module.exports = router;

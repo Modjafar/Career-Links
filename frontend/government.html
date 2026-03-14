@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Sector Domain | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+                <button class="about-btn" onclick="goAbout()">About Us</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- DOMAIN TITLE -->
+    <section class="hero">
+        <h1>🏛 Government Sector</h1>
+        <p>Explore internships, courses, and jobs in Government Jobs, Exams, Internships & More</p>
+    </section>
+
+    <!-- PAID INTERNSHIPS SECTION -->
+    <section class="section">
+        <h2>💼 Paid Internships</h2>
+        <p class="section-desc">Get paid internship opportunities in government sectors</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="NITI Aayog">
+                <h3>NITI Aayog</h3>
+                <p>Policy research internships</p>
+                <button onclick="apply('https://www.niti.gov.in/internship')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="DRDO">
+                <h3>DRDO</h3>
+                <p>Defense research internships</p>
+                <button onclick="apply('https://www.drdo.gov.in/careers')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="ISRO">
+                <h3>ISRO</h3>
+                <p>Space research internships</p>
+                <button onclick="apply('https://www.isro.gov.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="BANK">
+                <h3>Reserve Bank of India</h3>
+                <p>Banking sector internships</p>
+                <button onclick="apply('https://www.rbi.org.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="CBI">
+                <h3>CBI</h3>
+                <p>Central Bureau of Investigation</p>
+                <button onclick="apply('https://cbi.gov.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="UIDAI">
+                <h3>UIDAI</h3>
+                <p>Aadhaar internships</p>
+                <button onclick="apply('https://www.uidai.gov.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Public Sector Banks">
+                <h3>Public Sector Banks</h3>
+                <p>Banking internships</p>
+                <button onclick="apply('https://www.ibps.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="PSUs">
+                <h3>PSUs (BHEL, ONGC, etc.)</h3>
+                <p>Public sector internships</p>
+                <button onclick="apply('https://www.pstdcl.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="State Governments">
+                <h3>State Government</h3>
+                <p>State-level internships</p>
+                <button onclick="apply('https://www.ncs.gov.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Lok Sabha">
+                <h3>Parliament Internships</h3>
+                <p>Parliamentary internships</p>
+                <button onclick="apply('https://parliamentofindia.nic.in/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNPAID INTERNSHIPS SECTION -->
+    <section class="section">
+        <h2>🎓 Unpaid Internships</h2>
+        <p class="section-desc">Gain experience through unpaid government internship opportunities</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="NITI Aayog">
+                <h3>NITI Aayog (Free)</h3>
+                <p>Policy research internships</p>
+                <button onclick="apply('https://www.niti.gov.in/internship')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="UN">
+                <h3>United Nations</h3>
+                <p>UN internships program</p>
+                <button onclick="apply('https://careers.un.org/lbw/home.aspx?viewtype=IP')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="UNICEF">
+                <h3>UNICEF</h3>
+                <p>Child rights internships</p>
+                <button onclick="apply('https://www.unicef.org/careers/internships')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="WHO">
+                <h3>WHO</h3>
+                <p>Health sector internships</p>
+                <button onclick="apply('https://www.who.int/careers/internship-programme')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="MLC">
+                <h3>MLC Chambers</h3>
+                <p>Legal internships</p>
+                <button onclick="apply('https://www.ncs.gov.in/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAID COURSES SECTION -->
+    <section class="section">
+        <h2>📚 Paid Online Courses</h2>
+        <p class="section-desc">Prepare for government exams with paid courses</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="UPSC">
+                <h3>UPSC Civil Services</h3>
+                <p>IAS, IPS, IFS preparation</p>
+                <button onclick="apply('https://www.upsc.gov.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="SSC">
+                <h3>SSC Exams</h3>
+                <p>SSC CGL, CHSL preparation</p>
+                <button onclick="apply('https://ssc.nic.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Bank Exams">
+                <h3>Banking Exams</h3>
+                <p>IBPS, SBI preparation</p>
+                <button onclick="apply('https://www.ibps.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Simplilearn">
+                <h3>Simplilearn</h3>
+                <p>Government exam courses</p>
+                <button onclick="apply('https://www.simplilearn.com/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Udemy">
+                <h3>Udemy</h3>
+                <p>General studies courses</p>
+                <button onclick="apply('https://www.udemy.com/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Coursera">
+                <h3>Coursera</h3>
+                <p>Public policy courses</p>
+                <button onclick="apply('https://www.coursera.org/')">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE COURSES SECTION -->
+    <section class="section">
+        <h2>🆓 Free Online Courses</h2>
+        <p class="section-desc">Prepare for government exams for free</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="UPSC">
+                <h3>UPSC Free Resources</h3>
+                <p>Free study material</p>
+                <button onclick="apply('https://www.upsc.gov.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="SSC">
+                <h3>SSC Free Resources</h3>
+                <p>Free exam preparation</p>
+                <button onclick="apply('https://ssc.nic.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="NPTEL">
+                <h3>NPTEL</h3>
+                <p>Free engineering courses</p>
+                <button onclick="apply('https://nptel.ac.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="SWAYAM">
+                <h3>SWAYAM</h3>
+                <p>Free government courses</p>
+                <button onclick="apply('https://swayam.gov.in/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Khan Academy">
+                <h3>Khan Academy</h3>
+                <p>Free exam prep</p>
+                <button onclick="apply('https://www.khanacademy.org/')">Enroll Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Diksha">
+                <h3>Diksha</h3>
+                <p>Free government e-learning</p>
+                <button onclick="apply('https://diksha.gov.in/')">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOBS SECTION -->
+    <section class="section">
+        <h2>💼 Jobs</h2>
+        <p class="section-desc">Find government jobs</p>
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="UPSC">
+                <h3>UPSC</h3>
+                <p>Civil Services Jobs</p>
+                <button onclick="apply('https://www.upsc.gov.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="SSC">
+                <h3>SSC Jobs</h3>
+                <p>Staff Selection Commission</p>
+                <button onclick="apply('https://ssc.nic.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Railway">
+                <h3>Indian Railways</h3>
+                <p>Railway Jobs</p>
+                <button onclick="apply('https://indianrailways.gov.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Banks">
+                <h3>Banking Jobs</h3>
+                <p>Public Sector Banks</p>
+                <button onclick="apply('https://www.ibps.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="State PSC">
+                <h3>State PSC</h3>
+                <p>State Government Jobs</p>
+                <button onclick="apply('https://www.ncs.gov.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjkzNy02Mi5wbmc.png"
+                    alt="Defence">
+                <h3>Defence Jobs</h3>
+                <p>Army, Navy, Air Force</p>
+                <button onclick="apply('https://www.joinindianarmy.nic.in/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+    <script src="js/domain.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobs | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+                <button class="about-btn" onclick="goAbout()">About Us</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Job Platforms</h1>
+        <p>Find your dream job from top platforms</p>
+    </section>
+
+    <!-- JOBS LIST -->
+    <section class="section">
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://www.onrec.com/sites/onrec/directory/files/LinkedIn-Logo.wine_.png"
+                    alt="LinkedIn Jobs">
+                <h3>LinkedIn Jobs</h3>
+                <button onclick="apply('https://www.linkedin.com/jobs')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Indeed_logo.png" alt="Indeed">
+                <h3>Indeed</h3>
+                <button onclick="apply('https://www.indeed.com')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Naukri.png" alt="Naukri">
+                <h3>Naukri</h3>
+                <button onclick="apply('https://www.naukri.com')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://1000logos.net/wp-content/uploads/2021/12/Glassdoor-Logo-2017.png" alt="Glassdoor">
+                <h3>Glassdoor</h3>
+                <button onclick="apply('https://www.glassdoor.com/Job/jobs.htm')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://pimwp.s3-accelerate.amazonaws.com/2023/02/foundit_logo.png" alt="Foundit">
+                <h3>Foundit</h3>
+                <button onclick="apply('https://www.foundit.in/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://bellaward.com/wp-content/uploads/2019/08/TimesJobs-logo.png" alt="TimesJobs">
+                <h3>TimesJobs</h3>
+                <button onclick="apply('https://www.timesjobs.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://logodix.com/logo/2064841.png" alt="Shine">
+                <h3>Shine</h3>
+                <button onclick="apply('https://www.shine.com/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://d2zxo3dbbqu73w.cloudfront.net/images/fw_logos/freshersword_fb.png"
+                    alt="Freshersworld">
+                <h3>Freshersworld</h3>
+                <button onclick="apply('https://www.freshersworld.com/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>

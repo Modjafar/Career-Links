@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Career Links</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body class="auth-page">
+    <!-- Enhanced Header -->
+    <header class="auth-header">
+        <div class="logo">Career Links</div>
+        <nav class="auth-nav">
+            <button class="home-btn" onclick="goHome()">Home</button>
+            <button class="login-btn" onclick="goLogin()">Login</button>
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-main">
+        <div class="auth-container">
+            <!-- Left Side - Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Start Your Journey</h1>
+                    <p>Create your account and discover amazing career opportunities, internships, and courses designed
+                        for your success.</p>
+                    <svg class="hero-illustration" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="80" cy="80" r="60" fill="rgba(255,255,255,0.1)" />
+                        <circle cx="320" cy="220" r="50" fill="rgba(255,255,255,0.1)" />
+                        <path d="M100 150 Q150 100 200 150 Q250 200 300 150" stroke="rgba(255,255,255,0.2)"
+                            stroke-width="3" fill="none" />
+                        <circle cx="120" cy="120" r="8" fill="white" />
+                        <circle cx="280" cy="180" r="6" fill="white" />
+                        <rect x="50" y="200" width="80" height="40" rx="8" fill="rgba(255,255,255,0.15)" />
+                        <rect x="270" y="240" width="60" height="30" rx="6" fill="rgba(255,255,255,0.15)" />
+                    </svg>
+                </div>
+            </section>
+
+            <!-- Right Side - Form Card -->
+            <section class="form-section">
+                <div class="form-card">
+                    <h2>Create Account</h2>
+                    <p>Join Career Links today</p>
+
+                    <form id="registerForm">
+                        <div class="input-group">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="name" placeholder="" aria-label="Full Name" required>
+                            <label class="input-label">Full Name</label>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="email" placeholder="" aria-label="Email Address" required>
+                            <label class="input-label">Email Address</label>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="password" placeholder="" aria-label="Password" required>
+                            <label class="input-label">Password</label>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-icon">🔄</span>
+                            <input type="password" id="confirmPassword" placeholder="" aria-label="Confirm Password"
+                                required>
+                            <label class="input-label">Confirm Password</label>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-icon">🎓</span>
+                            <select id="role" aria-label="Role" required>
+                                <option value="">Select Role</option>
+                                <option value="student">Student</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                            <label class="input-label">Role</label>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Get Started</button>
+                    </form>
+
+                    <p class="no-account-text">
+                        Already have an account? <a href="login.html" class="auth-link">Sign in here</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Auth Footer -->
+    <footer class="auth-footer">
+        © 2026 Career Links. All rights reserved.
+    </footer>
+
+    <script src="js/home.js"></script>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

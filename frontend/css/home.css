@@ -1,0 +1,503 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CSS Variables for Light Mode (Default) */
+:root {
+    --bg-color: #f4f6f9;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --card-text: #333;
+    --header-bg: #ffffff;
+    --header-text: #333;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --hover-shadow: rgba(0, 123, 255, 0.15);
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --secondary-color: #28a745;
+    --danger-color: #dc3545;
+    --muted-color: #666;
+    --input-bg: #ffffff;
+    --input-border: #ddd;
+    --link-color: #007bff;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --card-text: #ffffff;
+    --header-bg: #1e1e1e;
+    --header-text: #ffffff;
+    --border-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --hover-shadow: rgba(0, 123, 255, 0.3);
+    --primary-hover: #0056b3;
+    --muted-color: #aaa;
+    --input-bg: #2c2c2c;
+    --input-border: #444;
+    --link-color: #4dabf7;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* HEADER */
+header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav button {
+    margin-left: 10px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.login-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.login-btn:hover {
+    background: var(--primary-hover);
+}
+
+.register-btn {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.register-btn:hover {
+    background: #1e7e34;
+}
+
+.about-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.about-btn:hover {
+    background: #545b62;
+}
+
+.home-btn {
+    background: #ffc107;
+    color: #333;
+}
+
+.home-btn:hover {
+    background: #e0a800;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: var(--primary-color);
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+/* Profile Section */
+.profile-section {
+    display: none;
+    align-items: center;
+    gap: 15px;
+    margin-left: 15px;
+}
+
+.profile-section.active {
+    display: flex;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-welcome {
+    font-size: 12px;
+    color: var(--muted-color);
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.logout-btn {
+    background: var(--danger-color);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #c82333;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* DOMAIN SECTION */
+.domains {
+    padding: 50px 60px;
+}
+
+.domains h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    font-size: 32px;
+}
+
+.domain-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.domain-card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    width: 220px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    text-align: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.domain-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px var(--hover-shadow);
+}
+
+.domain-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.domain-card p {
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+/* OPPORTUNITY SECTION */
+.section {
+    padding: 50px 60px;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-size: 28px;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--muted-color);
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.opportunity-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* CARD STYLES */
+.card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    text-align: center;
+    transition: 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--hover-shadow);
+    border-color: var(--primary-color);
+}
+
+.card img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.card p {
+    color: var(--muted-color);
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card button {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    width: 100%;
+    transition: 0.3s ease;
+}
+
+.card button:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: scale(1.02);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--header-bg);
+    color: var(--text-color);
+    margin-top: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Login/Register Page Styles */
+.login-box {
+    background: var(--card-bg);
+    color: var(--card-text);
+    padding: 35px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--input-border);
+    font-size: 14px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: var(--primary-hover);
+}
+
+.login-box p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--muted-color);
+}
+
+.login-box a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .profile-info {
+        align-items: center;
+    }
+
+    nav button {
+        margin: 5px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .theme-toggle {
+        margin: 5px 0;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .domains,
+    .section {
+        padding: 30px 20px;
+    }
+
+    .domain-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .opportunity-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-box {
+        width: 90%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-section {
+        width: 100%;
+        justify-content: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .domain-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .domain-card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>About Career Links</h1>
+        <p>Your gateway to career opportunities in a rapidly evolving world</p>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="section">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>Career Links is a comprehensive platform dedicated to bridging the gap between aspiring professionals and
+                their dream careers. We connect students and job seekers with internships, jobs, courses, and career
+                opportunities from trusted platforms across various industries.</p>
+            <p>Our mission is to empower individuals to build successful careers by providing access to quality
+                resources, guidance, and opportunities that align with their goals and aspirations.</p>
+        </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="section">
+        <div class="container">
+            <h2>Mission & Vision</h2>
+            <div class="opportunity-cards">
+                <div class="card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To democratize access to career opportunities and provide personalized guidance that helps
+                        individuals navigate their professional journey with confidence and clarity.</p>
+                </div>
+                <div class="card">
+                    <h3>🔮 Our Vision</h3>
+                    <p>To become the leading platform that transforms how people discover, pursue, and achieve their
+                        career
+                        aspirations, fostering a world where everyone has the tools to succeed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="opportunity-cards">
+                <div class="card">
+                    <h4>💻 IT & Software</h4>
+                    <p>Development, AI, Cyber Security opportunities</p>
+                </div>
+                <div class="card">
+                    <h4>📊 Management</h4>
+                    <p>HR, Marketing, Business internships and jobs</p>
+                </div>
+                <div class="card">
+                    <h4>💰 Finance</h4>
+                    <p>Banking, Accounting, Investment careers</p>
+                </div>
+                <div class="card">
+                    <h4>🛒 E-Commerce</h4>
+                    <p>Amazon, Shopify, Digital Sales platforms</p>
+                </div>
+                <div class="card">
+                    <h4>🏛 Government Sector</h4>
+                    <p>Gov Jobs, Exams, Internships</p>
+                </div>
+                <div class="card">
+                    <h4>🌍 English Learning</h4>
+                    <p>Spoken English & Certification courses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>

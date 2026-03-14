@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paid Internships | Career Links</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Career Links</div>
+        <nav>
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div id="auth-buttons">
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="register-btn" onclick="goRegister()">Register</button>
+                <button class="about-btn" onclick="goAbout()">About Us</button>
+            </div>
+
+            <!-- Profile Section (shown when logged in) -->
+            <div id="profile-section" class="profile-section">
+                <div class="profile-icon">👤</div>
+                <div class="profile-info">
+                    <span class="user-welcome">Welcome,</span>
+                    <span class="user-name" id="user-display-name">User</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
+                title="Toggle Dark/Light Mode">🌙</button>
+
+            <button class="home-btn" onclick="goHome()">Home</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Paid Internship Platforms</h1>
+        <p>Get paid internship opportunities from top companies</p>
+    </section>
+
+    <!-- INTERNSHIPS LIST -->
+    <section class="section">
+        <div class="opportunity-cards">
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/a2/4c/1b/a24c1bb70dbf23186fd6e0709cd7881a.jpg" alt="Google Careers">
+                <h3>Google Careers</h3>
+                <p>Software engineering internships</p>
+                <button onclick="apply('https://careers.google.com/students/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwK7l8u5Uy98TV7jzBWzI6jiqwRXGaTFKiog&s"
+                    alt="Microsoft">
+                <h3>Microsoft Careers</h3>
+                <p>Student internship programs</p>
+                <button onclick="apply('https://careers.microsoft.com/students/us/en')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://i0.wp.com/opportunitiesforyouth.org/wp-content/uploads/2025/01/16th-jan_amazon.jpg"
+                    alt="Amazon">
+                <h3>Amazon Internships</h3>
+                <p>Paid internships for students</p>
+                <button onclick="apply('https://www.amazon.jobs/en/teams/internships-for-students')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://1000logos.net/wp-content/uploads/2021/04/Adobe-logo.png" alt="Adobe">
+                <h3>Adobe</h3>
+                <p>Creative and technical internships</p>
+                <button onclick="apply('https://careers.adobe.com/us/en/students')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://internshala.com//static/images/internshala_og_image.jpg" alt="Internshala">
+                <h3>Internshala</h3>
+                <p>Paid internships in India</p>
+                <button onclick="apply('https://internshala.com/internships/paid-internships/')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95Z4YVYbM6SAVHtlkuUqaFnyVFoQG54p-7A&s"
+                    alt="Infosys">
+                <h3>Infosys Springboard</h3>
+                <p>Digital internships</p>
+                <button onclick="apply('https://infyspringboard.onwingspan.com/')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Career Links | All Rights Reserved
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>
