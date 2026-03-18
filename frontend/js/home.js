@@ -1,4 +1,4 @@
-// Navigation Functions
+/* eslint-env browser */\n/* global window, localStorage, document, alert, console */\n\n// Navigation Functions
 function goLogin() {
     window.location.href = "login.html";
 }
@@ -32,7 +32,7 @@ function openDomain(domain) {
 }
 
 function apply(url) {
-    if (localStorage.getItem("isLoggedIn") === "true") {
+    if (localStorage.getItem("token")) {
         window.open(url, '_blank');
     } else {
         localStorage.setItem("redirectAfterLogin", window.location.href);
@@ -76,7 +76,7 @@ function loadTheme() {
 
 // Logout Function
 function logout() {
-    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("token");
     localStorage.removeItem("userName");
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userId");
@@ -85,14 +85,14 @@ function logout() {
 
 // Update Navbar Profile Section
 function updateNavbar() {
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const token = localStorage.getItem("token");
     const userName = localStorage.getItem("userName");
 
     const authButtons = document.getElementById("auth-buttons");
     const profileSection = document.getElementById("profile-section");
     const userDisplayName = document.getElementById("user-display-name");
 
-    if (isLoggedIn && userName) {
+    if (token && userName) {
         if (authButtons) authButtons.style.display = "none";
         if (profileSection) {
             profileSection.style.display = "flex";

@@ -1,5 +1,5 @@
 
-const express = require("express");
+/* eslint-env node */\n/* global process, require, module, console */\n\nconst express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 require("dotenv").config();

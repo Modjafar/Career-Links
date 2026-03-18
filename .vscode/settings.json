@@ -1,0 +1,19 @@
+{
+  \"eslint.validate\": [\"javascript\", \"javascriptreact\"],
+  \"editor.codeActionsOnSave\": {
+    \"source.fixAll.eslint\": true
+  },
+  \"typescript.suggest.autoImports\": false,
+  \"editor.scrollbar.overviewRulerLanes\": 2
+    "./"
+  ],
+  "eslint.options": {
+    "extensions": [
+      ".js"
+    ]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "js/ts.suggest.autoImports": true
+}

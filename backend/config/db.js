@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/* eslint-env node */\n/* global require, module, process, console */\n\nconst mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {

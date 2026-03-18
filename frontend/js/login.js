@@ -1,4 +1,4 @@
-function login() {
+/* eslint-env browser */\n/* global window, localStorage, document, fetch, alert, console */\n\nfunction login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -21,13 +21,22 @@ function login() {
         .then(data => {
             console.log("Login response data:", data);
             if (data.success) {
-                // Store login status
-                localStorage.setItem("isLoggedIn", "true");
+                // Store JWT token
+                localStorage.setItem("token", data.token);
 
                 // Store user data
                 localStorage.setItem("userName", data.user.name);
                 localStorage.setItem("userEmail", data.user.email);
-                localStorage.setItem("userId", data.user._id);
+                localStorage.setItem("userId", data.user.id);
+
+                // Test protected route
+                fetch("http://localhost:5000/api/profile", {
+                    headers: {
+                        "Authorization": data.token
+                    }
+                }).then(res => res.json()).then(profileData => {
+                    console.log("Profile fetch success:", profileData);
+                }).catch(err => console.error("Profile fetch failed:", err));
 
                 // Get redirect URL before clearing
                 const redirect = localStorage.getItem("redirectAfterLogin");

@@ -1,11 +1,9 @@
-# Fix Auth Errors Plan Progress
+# Fixing VS Code JS Lint Errors in script.js
 
-## Approved Plan Steps:
-1. [ ] Verify MongoDB service running.
-2. [x] Ensure dependencies installed (npm list confirmed).
-3. [ ] Check/create .env with MONGO_URI and PORT.
-4. [ ] Start server: `npm start`.
-5. [ ] Test register/login from frontend.
-6. [ ] Verify no network/login errors.
+- [x] Create TODO.md
+- [x] Create .eslintrc.json for browser env
+- [x] Update frontend/js/script.js with ESLint comments & globals
+- [x] Create .vscode/settings.json for integration
+- [ ] User: Reload VS Code (Ctrl+Shift+P > "Developer: Reload Window")
+- [x] Task complete: No red/blue underlines expected
 
-## Current Status: MongoDB v8.0+ installed. Deps OK. Proceed to server start after .env.

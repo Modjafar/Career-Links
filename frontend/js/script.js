@@ -1,78 +1,94 @@
-const resultsDiv = document.getElementById("results");
+/* eslint-env browser */
+/* global window, localStorage, document, fetch, alert, console */
 
-// Internships
-document.querySelector(".card:nth-child(1) .btn-paid")
-  .addEventListener("click", () => loadData("internships", "paid"));
+'use strict';
 
-document.querySelector(".card:nth-child(1) .btn-unpaid")
-  .addEventListener("click", () => loadData("internships", "unpaid"));
+(() => {
+  const resultsDiv = document.getElementById('results');
 
-// Courses
-document.querySelector(".card:nth-child(2) .btn-paid")
-  .addEventListener("click", () => loadData("courses", "paid"));
+  if (!resultsDiv) return;
 
-document.querySelector(".card:nth-child(2) .btn-unpaid")
-  .addEventListener("click", () => loadData("courses", "unpaid"));
+  // Event Listeners - Internships
+  const paidInternBtn = document.querySelector('.card:nth-child(1) .btn-paid');
+  const unpaidInternBtn = document.querySelector('.card:nth-child(1) .btn-unpaid');
+  if (paidInternBtn) paidInternBtn.addEventListener('click', () => loadData('internships', 'paid'));
+  if (unpaidInternBtn) unpaidInternBtn.addEventListener('click', () => loadData('internships', 'unpaid'));
 
-// Jobs
-document.querySelector(".card:nth-child(3) .btn-paid")
-  .addEventListener("click", () => loadData("jobs"));
+  // Event Listeners - Courses
+  const paidCourseBtn = document.querySelector('.card:nth-child(2) .btn-paid');
+  const unpaidCourseBtn = document.querySelector('.card:nth-child(2) .btn-unpaid');
+  if (paidCourseBtn) paidCourseBtn.addEventListener('click', () => loadData('courses', 'paid'));
+  if (unpaidCourseBtn) unpaidCourseBtn.addEventListener('click', () => loadData('courses', 'unpaid'));
 
-function loadData(type, filter = "") {
-  let url = `http://localhost:5000/api/${type}`;
-  if (filter) url += `?type=${filter}`;
+  // Event Listeners - Jobs
+  const jobsBtn = document.querySelector('.card:nth-child(3) .btn-paid');
+  if (jobsBtn) jobsBtn.addEventListener('click', () => loadData('jobs'));
 
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      resultsDiv.innerHTML = `<h2>${type.toUpperCase()}</h2>`;
+  function loadData(type, filter = '') {
+    const baseUrl = 'http://localhost:5000/api/' + type;
+    const url = filter ? baseUrl + '?type=' + filter : baseUrl;
 
-      if (data.length === 0) {
-        resultsDiv.innerHTML += "<p>No data found</p>";
-        return;
-      }
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        resultsDiv.innerHTML = '<h2>' + type.toUpperCase() + '</h2>';
 
-      data.forEach(item => {
-        resultsDiv.innerHTML += `
-          <div style="margin:10px; padding:10px; border:1px solid #ddd;">
-            <strong>${item.title}</strong><br/>
-            <span>${item.company || item.platform}</span>
-          </div>
-        `;
+        if (!data || data.length === 0) {
+          resultsDiv.innerHTML += '<p>No data found</p>';
+          return;
+        }
+
+        let html = '';
+        data.forEach((item) => {
+          html += `
+            <div style="margin: 10px; padding: 10px; border: 1px solid #ddd;">
+              <strong>${item.title}</strong><br>
+              <span>${item.company || item.platform}</span>
+            </div>
+          `;
+        });
+        resultsDiv.innerHTML += html;
+      })
+      .catch((error) => {
+        console.error('Error loading data:', error);
+        resultsDiv.innerHTML = '<p>Error loading data. Please try again.</p>';
       });
-    });
-}
-
-function openPaidInternships() {
-  window.open("https://internshala.com/internships/paid-internship", "_blank");
-}
-
-function openUnpaidInternships() {
-  window.open("https://internshala.com/internships/unpaid-internship", "_blank");
-}
-
-function openPaidCourses() {
-  window.open("https://www.coursera.org", "_blank");
-}
-
-function openUnpaidCourses() {
-  window.open("https://www.edx.org", "_blank");
-}
-
-function openJobs() {
-  window.open("https://www.linkedin.com/jobs", "_blank");
-}
-
-function checkLoginAndRedirect(url) {
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-
-  if (!isLoggedIn) {
-    // Save where user wanted to go
-    localStorage.setItem("redirectAfterLogin", url);
-    window.location.href = "login.html";
-  } else {
-    window.open(url, "_blank");
   }
-}
 
+  window.openPaidInternships = function () {
+    window.open('https://internshala.com/internships/paid-internship', '_blank');
+  };
+
+  window.openUnpaidInternships = function () {
+    window.open('https://internshala.com/internships/unpaid-internship', '_blank');
+  };
+
+  window.openPaidCourses = function () {
+    window.open('https://www.coursera.org', '_blank');
+  };
+
+  window.openUnpaidCourses = function () {
+    window.open('https://www.edx.org', '_blank');
+  };
+
+  window.openJobs = function () {
+    window.open('https://www.linkedin.com/jobs', '_blank');
+  };
+
+  window.checkLoginAndRedirect = function (url) {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      localStorage.setItem('redirectAfterLogin', url);
+      window.location.href = 'login.html';
+    } else {
+      window.open(url, '_blank');
+    }
+  };
+})();
 
