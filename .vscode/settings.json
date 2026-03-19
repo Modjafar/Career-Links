@@ -1,0 +1,11 @@
+{
+  "eslint.validate": [
+    "javascript"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "js/ts.suggest.autoImports": true,
+  "js/ts.validate.enabled": true,
+  "editor.minimap.enabled": false
+}

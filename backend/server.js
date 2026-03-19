@@ -1,3 +1,4 @@
+/* eslint-env node */
 
 const express = require("express");
 const cors = require("cors");
@@ -10,14 +11,16 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Connect to MongoDB
+// Connect DB
 connectDB();
 
-// API Routes
+// Routes
 const apiRoutes = require("./routes/api");
 app.use("/api", apiRoutes);
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${process.env.PORT}`);
-    console.log(`MongoDB URI: ${process.env.MONGO_URI}`);
+// Start Server
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });

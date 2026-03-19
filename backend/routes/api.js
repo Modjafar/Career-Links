@@ -1,6 +1,10 @@
+/* eslint-env node */
+// global require, module, console, process//
 const express = require("express");
 const User = require("../models/User.js");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const authMiddleware = require("../middleware/auth.js");
 
 const router = express.Router();
 
@@ -60,12 +64,18 @@ router.post("/login", async (req, res) => {
 
         console.log("Login successful for:", email);
 
-        // Return user data after successful login
+        // Generate JWT token
+        const token = jwt.sign(
+            { userId: user._id },
+            process.env.JWT_SECRET,
+            { expiresIn: "1d" }
+        );
+
         res.json({
             success: true,
-            message: "Login successful",
+            token: token,
             user: {
-                _id: user._id,
+                id: user._id,
                 name: user.name,
                 email: user.email,
                 role: user.role
@@ -118,4 +128,24 @@ router.get("/jobs", (req, res) => {
     ]);
 });
 
+// Profile - Protected route
+router.get("/profile", authMiddleware, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.userId).select("-password");
+        res.json({
+            success: true,
+            message: "Protected profile data",
+            user
+        });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Server error" });
+    }
+});
+
+// Health check endpoint
+router.get("/health", (req, res) => {
+    res.json({ success: true, message: "Career Links API is running!", timestamp: new Date().toISOString() });
+});
+
 module.exports = router;
+

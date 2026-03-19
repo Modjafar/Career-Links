@@ -353,6 +353,31 @@ nav button {
     transform: scale(1.02);
 }
 
+/* Opportunity Buttons */
+.opportunity-buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.btn-small:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: scale(1.02);
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -501,3 +526,4 @@ footer {
         width: 100%;
     }
 }
+

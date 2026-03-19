@@ -1,0 +1,43 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "script"
+    },
+    "globals": {
+        "window": "readonly",
+        "localStorage": "readonly",
+        "document": "readonly",
+        "fetch": "readonly",
+        "alert": "readonly",
+        "console": "readonly",
+        "process": "readonly",
+        "module": "readonly",
+        "require": "readonly",
+        "express": "readonly",
+        "mongoose": "readonly",
+        "jwt": "readonly",
+        "bcrypt": "readonly"
+    },
+    "rules": {
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "no-undef": "error",
+        "no-console": "off",
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
