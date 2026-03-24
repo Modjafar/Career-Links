@@ -1,4 +1,6 @@
-/* eslint-env browser */\n/* global window, localStorage, document, fetch, alert, console */\n\nfunction login() {
+/* eslint-env browser */
+/* global window, localStorage, document, fetch, alert, console */
+function login() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 

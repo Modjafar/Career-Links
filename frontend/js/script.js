@@ -1,6 +1,6 @@
 /* eslint-env browser */
 /* global window, localStorage, document, fetch, alert, console */
-
+console.log("JS Loaded");
 'use strict';
 
 (() => {

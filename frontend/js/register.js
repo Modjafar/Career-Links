@@ -1,4 +1,6 @@
-/* eslint-env browser */\n/* global window, document, fetch, alert, console */\n\ndocument.getElementById('registerForm').addEventListener('submit', async function (e) {
+/* eslint-env browser */
+/* global window, document, fetch, alert, console */
+document.getElementById('registerForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const name = document.getElementById('name').value.trim();

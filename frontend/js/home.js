@@ -1,4 +1,6 @@
-/* eslint-env browser */\n/* global window, localStorage, document, alert, console */\n\n// Navigation Functions
+/* eslint-env browser */
+/* global window, localStorage, document, alert, console */
+// Navigation Functions
 function goLogin() {
     window.location.href = "login.html";
 }
