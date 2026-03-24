@@ -1,5 +1,6 @@
 /* eslint-env node */
-// global require, module, console, process//
+/* global require, module, console, process */
+
 const express = require("express");
 const User = require("../models/User.js");
 const bcrypt = require("bcrypt");

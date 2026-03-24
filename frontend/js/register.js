@@ -1,5 +1,6 @@
 /* eslint-env browser */
 /* global window, document, fetch, alert, console */
+
 document.getElementById('registerForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -9,7 +10,6 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const confirmPassword = document.getElementById('confirmPassword').value;
     const role = document.getElementById('role').value;
 
-    // Validation
     if (!name || !email || !password || !confirmPassword || !role) {
         alert('Please fill in all fields');
         return;
@@ -31,8 +31,6 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         return;
     }
 
-    console.log("Attempting registration with email:", email);
-
     try {
         const response = await fetch('http://localhost:5000/api/register', {
             method: 'POST',
@@ -40,32 +38,21 @@ document.getElementById('registerForm').addEventListener('submit', async functio
             body: JSON.stringify({ name, email, password, role })
         });
 
-        console.log("Register response status:", response.status);
-
         const data = await response.json();
-        console.log("Register response data:", data);
 
         if (response.ok) {
-            alert('Registration successful! Please login.');
+            alert('Registration successful!');
             window.location.href = 'login.html';
         } else {
-            alert(data.message || 'Registration failed. Please try again.');
+            alert(data.message || 'Registration failed');
         }
     } catch (error) {
-        console.error('Network error:', error);
-        alert('Network error. Please try again.');
+        console.error(error);
+        alert('Network error');
     }
 });
 
-// Navigation functions
+// Navigation
 function goLogin() {
     window.location.href = 'login.html';
-}
-
-function goRegister() {
-    window.location.href = 'register.html';
-}
-
-function goAbout() {
-    alert('Career Links helps students find internships, courses and jobs.');
 }

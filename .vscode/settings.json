@@ -1,11 +1,11 @@
 {
   "eslint.validate": [
-    "javascript"
+    "javascript",
+    "javascriptreact"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "js/ts.suggest.autoImports": true,
-  "js/ts.validate.enabled": true,
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "js/ts.suggest.autoImports": true
 }
