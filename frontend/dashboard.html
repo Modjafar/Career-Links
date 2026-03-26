@@ -4,69 +4,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard - Career Links</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Dashboard | Career Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!-- Modern Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">CareerLinks</a>
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-briefcase"></i> CareerLinks
+            </a>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="dashboard.html" class="nav-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link active" onclick="loadDashboard()">Dashboard</a>
+                <li><a href="#" class="nav-link" onclick="loadSavedItems()"><i class="fas fa-bookmark"></i> Saved</a>
                 </li>
-                <li class="nav-item">
-                    <span id="userName" class="nav-link user-greeting"></span>
+                <li id="profile-nav">
+                    <span id="user-greeting" class="user-info"></span>
+                    <button class="logout-btn" onclick="logout()" aria-label="Logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
                 </li>
-                <li class="nav-item">
-                    <button onclick="logout()" class="logout-btn">Logout</button>
+                <li class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="theme-icon"></i>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <main class="dashboard-container">
-        <div class="dashboard-header">
-            <h1>Welcome back, <span id="dashUserName"></span>!</h1>
-            <p>Your saved opportunities and activity</p>
-        </div>
-
-        <div class="dashboard-stats">
-            <div class="stat-card">
-                <h3 id="savedCount">0</h3>
-                <p>Saved Items</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="appliedCount">0</h3>
-                <p>Applied</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="viewsCount">0</h3>
-                <p>Views this week</p>
-            </div>
-        </div>
-
-        <section class="dashboard-section">
-            <h2>Saved Opportunities</h2>
-            <div id="savedList" class="opps-grid">
-                <!-- Dynamic cards -->
+    <!-- Dashboard Container -->
+    <main class="dashboard-main">
+        <!-- Welcome Header -->
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <h1>Good Morning, <span id="user-name-display"></span>! 👋</h1>
+                    <p>Here's what's happening with your career journey today.</p>
+                </div>
+                <div class="quick-actions">
+                    <button class="action-btn" onclick="window.location.href='index.html'" aria-label="Quick search">
+                        <i class="fas fa-search"></i> Quick Search
+                    </button>
+                    <button class="action-btn primary" onclick="loadSavedItems()" aria-label="Refresh saved">
+                        <i class="fas fa-sync-alt"></i> Refresh Saved
+                    </button>
+                </div>
             </div>
         </section>
 
-        <section class="dashboard-section">
-            <h2>Recent Activity</h2>
-            <div id="activityList">
-                <!-- Activity items -->
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card saved-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="saved-count">0</h3>
+                    <p>Saved Opportunities</p>
+                </div>
+            </div>
+            <div class="stat-card applied-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="applied-count">0</h3>
+                    <p>Applied Jobs</p>
+                </div>
+            </div>
+            <div class="stat-card views-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="views-count">0</h3>
+                    <p>Page Views</p>
+                </div>
+            </div>
+            <div class="stat-card matching-stat">
+                <div class="stat-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="matching-count">0</h3>
+                    <p>Recommended</p>
+                </div>
             </div>
         </section>
+
+        <div class="dashboard-grid">
+            <!-- Saved Opportunities -->
+            <section class="dashboard-card saved-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Saved Opportunities</h2>
+                    <button class="clear-all-btn" onclick="clearAllSaved()" aria-label="Clear all saved">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+                <div id="saved-opportunities" class="opportunities-grid">
+                    <!-- Dynamic content -->
+                </div>
+                <div id="empty-saved" class="empty-state">
+                    <i class="fas fa-bookmark-slash empty-icon"></i>
+                    <h3>No saved opportunities yet</h3>
+                    <p>Save your favorite jobs, internships and courses to see them here.</p>
+                    <button class="empty-action" onclick="window.location.href='index.html'"
+                        aria-label="Start browsing">
+                        <i class="fas fa-search"></i> Start Browsing
+                    </button>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="dashboard-card activity-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-history"></i> Recent Activity</h2>
+                    <button class="view-all-btn" onclick="loadMoreActivity()" aria-label="View all activity">
+                        View All
+                    </button>
+                </div>
+                <div id="recent-activity" class="activity-list">
+                    <!-- Dynamic content -->
+                </div>
+                <div id="empty-activity" class="empty-state">
+                    <i class="fas fa-clock empty-icon"></i>
+                    <h3>No recent activity</h3>
+                    <p>Your activity will appear here once you start browsing opportunities.</p>
+                </div>
+            </section>
+        </div>
     </main>
-
-    <script src="js/dashboard.js"></script>
 </body>
+<script src="js/dashboard.js"></script>
 
 </html>
