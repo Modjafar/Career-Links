@@ -1,0 +1,144 @@
+/* Dashboard Styles */
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color, #2563eb);
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    font-size: 3rem;
+    margin: 0 0 0.5rem;
+}
+
+.stat-card p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.dashboard-section {
+    margin-bottom: 4rem;
+}
+
+.dashboard-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark, #1f2937);
+}
+
+.opps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.opp-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color, #2563eb);
+}
+
+.opp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.opp-card h3 {
+    margin: 0 0 0.5rem;
+    color: var(--text-dark, #1f2937);
+}
+
+.company {
+    font-size: 1.1rem;
+    color: var(--primary-color, #2563eb);
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+}
+
+.domain,
+.location {
+    color: #6b7280;
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+}
+
+.domain::before {
+    content: "📂 ";
+}
+
+.location::before {
+    content: "📍 ";
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.apply-btn,
+.unsave-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.apply-btn {
+    background: #10b981;
+    color: white;
+}
+
+.apply-btn:hover {
+    background: #059669;
+}
+
+.unsave-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.unsave-btn:hover {
+    background: #dc2626;
+}
+
+@media (max-width: 768px) {
+    .opps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

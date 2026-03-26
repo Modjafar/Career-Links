@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Career Links</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">CareerLinks</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" onclick="loadDashboard()">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <span id="userName" class="nav-link user-greeting"></span>
+                </li>
+                <li class="nav-item">
+                    <button onclick="logout()" class="logout-btn">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome back, <span id="dashUserName"></span>!</h1>
+            <p>Your saved opportunities and activity</p>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <h3 id="savedCount">0</h3>
+                <p>Saved Items</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="appliedCount">0</h3>
+                <p>Applied</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="viewsCount">0</h3>
+                <p>Views this week</p>
+            </div>
+        </div>
+
+        <section class="dashboard-section">
+            <h2>Saved Opportunities</h2>
+            <div id="savedList" class="opps-grid">
+                <!-- Dynamic cards -->
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>Recent Activity</h2>
+            <div id="activityList">
+                <!-- Activity items -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

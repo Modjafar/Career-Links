@@ -42,6 +42,27 @@
     <section class="hero">
         <h1>Build Your Career With Us</h1>
         <p>Find internships, jobs and courses from trusted platforms</p>
+
+        <!-- Advanced Search -->
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search jobs, internships, courses...">
+                <select id="domainSelect" aria-label="Domain filter">
+                    <option value="">All Domains</option>
+                    <option value="IT">IT</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Management">Management</option>
+                    <option value="Ecommerce">E-Commerce</option>
+                    <option value="Government">Government</option>
+                    <option value="English">English</option>
+                </select>
+                <button onclick="searchOpportunities()" class="search-button">Search</button>
+            </div>
+        </div>
+
+        <div id="searchResults" class="results-section">
+            <!-- Dynamic results will appear here -->
+        </div>
     </section>
 
     <!-- DOMAIN SECTION -->
