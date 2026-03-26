@@ -100,6 +100,13 @@ function updateNavbar() {
             profileSection.style.display = "flex";
             if (userDisplayName) userDisplayName.textContent = userName;
         }
+        // Add Dashboard link
+        const nav = document.querySelector('nav');
+        const dashLink = document.createElement('a');
+        dashLink.href = 'dashboard.html';
+        dashLink.className = 'nav-link';
+        dashLink.textContent = 'Dashboard';
+        nav.appendChild(dashLink);
     } else {
         if (authButtons) authButtons.style.display = "flex";
         if (profileSection) profileSection.style.display = "none";
