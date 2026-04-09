@@ -4,135 +4,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Links - Find Your Dream Career</title>
-    <link rel="stylesheet" href="css/home.css">
+    <title>Career Links - Premium SaaS Dashboard</title>
+    <link rel="stylesheet" href="css/premium-style.css">
+    <link rel="stylesheet" href="css/saas-pro.css">
+    <link rel="stylesheet" href="css/domain-icons.css">
+    <link rel="stylesheet" href="css/stat-colors.css">
+
 </head>
 
-<body>
+<body data-theme="light">
+    <!-- Sidebar Toggle (Mobile) -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">Career Links</div>
-
-        <nav>
-            <!-- Auth Buttons (shown when not logged in) -->
-            <div id="auth-buttons">
-                <button class="login-btn" onclick="goLogin()">Login</button>
-                <button class="register-btn" onclick="goRegister()">Register</button>
-                <button class="about-btn" onclick="goAbout()">About Us</button>
-            </div>
-
-            <!-- Profile Section (shown when logged in) -->
-            <div id="profile-section" class="profile-section">
-                <div class="profile-icon">👤</div>
-                <div class="profile-info">
-                    <span class="user-welcome">Welcome,</span>
-                    <span class="user-name" id="user-display-name">User</span>
-                </div>
-                <button class="logout-btn" onclick="logout()">Logout</button>
-            </div>
-
-            <!-- Theme Toggle -->
-            <button class="theme-toggle" id="theme-icon" onclick="toggleTheme()"
-                title="Toggle Dark/Light Mode">🌙</button>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">CareerLinks</div>
+        <nav class="nav-list">
+            <a href="index.html" class="nav-link active">
+                <span class="nav-icon">🏠</span>
+                Home
+            </a>
+            <a href="dashboard.html" class="nav-link">
+                <span class="nav-icon">📊</span>
+                Dashboard
+            </a>
+            <a href="#" onclick="openDomain('it')" class="nav-link">
+                <span class="nav-icon">💻</span>
+                IT
+            </a>
+            <a href="#" onclick="openDomain('finance')" class="nav-link">
+                <span class="nav-icon">💰</span>
+                Finance
+            </a>
+            <a href="#" onclick="openDomain('management')" class="nav-link">
+                <span class="nav-icon">📊</span>
+                Management
+            </a>
+            <a href="about.html" class="nav-link">
+                <span class="nav-icon">ℹ️</span>
+                About
+            </a>
         </nav>
-    </header>
+    </aside>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Build Your Career With Us</h1>
-        <p>Find internships, jobs and courses from trusted platforms</p>
-
-        <!-- Advanced Search -->
-        <div class="search-section">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search jobs, internships, courses...">
-                <select id="domainSelect" aria-label="Domain filter">
-                    <option value="">All Domains</option>
-                    <option value="IT">IT</option>
-                    <option value="Finance">Finance</option>
-                    <option value="Management">Management</option>
-                    <option value="Ecommerce">E-Commerce</option>
-                    <option value="Government">Government</option>
-                    <option value="English">English</option>
-                </select>
-                <button onclick="searchOpportunities()" class="search-button">Search</button>
+    <!-- Main Content -->
+    <main class="main-layout">
+        <!-- Header -->
+        <header>
+            <div class="nav-container">
+                <div></div> <!-- Spacer for sidebar -->
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link" onclick="toggleTheme()">🌙 Dark Mode</a>
+                    <div id="profile-section" class="profile-section">
+                        <div class="profile-avatar">👤</div>
+                        <span id="user-name">User</span>
+                        <button class="logout-btn" onclick="logout()">Logout</button>
+                    </div>
+                    <div id="auth-buttons">
+                        <button onclick="goLogin()" class="btn btn-primary btn-small">Login</button>
+                        <button onclick="goRegister()" class="btn btn-secondary btn-small">Register</button>
+                    </div>
+                </nav>
             </div>
-        </div>
+        </header>
 
-        <div id="searchResults" class="results-section">
-            <!-- Dynamic results will appear here -->
-        </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero animate-fadeInUp">
+            <h1 class="h1">Find Your Dream Career</h1>
+            <p>Discover premium internships, jobs & courses from top companies worldwide</p>
 
-    <!-- DOMAIN SECTION -->
-    <section class="domains">
-        <h2>Explore Career Domains</h2>
-
-        <div class="domain-container">
-            <div class="domain-card" onclick="openDomain('it')">
-                <h3>💻 IT & Software</h3>
-                <p>Development, AI, Cyber Security</p>
-            </div>
-
-            <div class="domain-card" onclick="openDomain('management')">
-                <h3>📊 Management</h3>
-                <p>HR, Marketing, Business</p>
-            </div>
-
-            <div class="domain-card" onclick="openDomain('finance')">
-                <h3>💰 Finance</h3>
-                <p>Banking, Accounting, Investment</p>
+            <!-- Search -->
+            <div class="search-container">
+                <div class="search-group">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search opportunities...">
+                    <select id="domainSelect" class="search-select" aria-label="Domain filter">
+                        <option value="">All Domains</option>
+                        <option value="IT">💻 IT</option>
+                        <option value="Finance">💰 Finance</option>
+                        <option value="Management">📊 Management</option>
+                        <option value="Ecommerce">🛒 E-Commerce</option>
+                        <option value="Government">🏛 Government</option>
+                        <option value="English">🌍 English</option>
+                    </select>
+                    <button onclick="searchOpportunities()" class="btn btn-primary">🔍 Search</button>
+                </div>
             </div>
 
-            <div class="domain-card" onclick="openDomain('ecommerce')">
-                <h3>🛒 E-Commerce</h3>
-                <p>Amazon, Shopify, Digital Sales</p>
-            </div>
+            <div id="searchResults"></div>
+        </section>
 
-            <div class="domain-card" onclick="openDomain('government')">
-                <h3>🏛 Government Sector</h3>
-                <p>Gov Jobs, Exams, Internships</p>
+        <!-- Domains Grid -->
+        <section class="domains animate-fadeInUp">
+            <h2 class="h2">Explore Premium Domains</h2>
+            <div class="card-grid">
+                <div class="glass-card opp-card" onclick="openDomain('it')">
+                    <div class="domain-it">💻</div>
+                    <h3 class="opp-title">IT & Software</h3>
+                    <p class="text-muted">Development, AI, Cyber Security, Cloud</p>
+                </div>
+                <div class="glass-card opp-card" onclick="openDomain('finance')">
+                    <div class="domain-finance">💰</div>
+                    <h3 class="opp-title">Finance</h3>
+                    <p class="text-muted">Banking, Fintech, Investment, Accounting</p>
+                </div>
+                <div class="glass-card opp-card" onclick="openDomain('management')">
+                    <div class="domain-mgmt">📊</div>
+                    <h3 class="opp-title">Management</h3>
+                    <p class="text-muted">HR, Marketing, Operations, Strategy</p>
+                </div>
+                <div class="glass-card opp-card" onclick="openDomain('ecommerce')">
+                    <div class="domain-it">🛒</div>
+                    <h3 class="opp-title">E-Commerce</h3>
+                    <p class="text-muted">Amazon, Shopify, Digital Marketing</p>
+                </div>
+                <div class="glass-card opp-card" onclick="openDomain('government')">
+                    <div class="domain-it">🏛</div>
+                    <h3 class="opp-title">Government</h3>
+                    <p class="text-muted">Public sector jobs, exams, policy roles</p>
+                </div>
+                <div class="glass-card opp-card" onclick="openDomain('english')">
+                    <div class="domain-it">🌍</div>
+                    <h3 class="opp-title">English Learning</h3>
+                    <p class="text-muted">Communication, certification, spoken English</p>
+                </div>
             </div>
+        </section>
 
-            <div class="domain-card" onclick="openDomain('english')">
-                <h3>🌍 English Learning</h3>
-                <p>Spoken English & Certification</p>
+        <!-- Stats (for logged in) -->
+        <section id="dashboard-stats" class="dashboard-stats hidden-section">
+            <div class="glass-card stat-card">
+                <div class="stat-number stat-saved">12</div>
+                <div class="stat-label">Saved Opportunities</div>
             </div>
-        </div>
-    </section>
+            <div class="glass-card stat-card">
+                <div class="stat-number stat-applications">8</div>
+                <div class="stat-label">Applications</div>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-number stat-interviews">4</div>
+                <div class="stat-label">Interviews</div>
+            </div>
+        </section>
 
-    <!-- HOW IT WORKS SECTION -->
-    <section class="section">
-        <h2>How It Works</h2>
-        <p class="section-desc">Follow these simple steps to find your dream opportunity</p>
-        <div class="opportunity-cards">
-            <div class="card">
-                <h3>1️⃣ Choose Domain</h3>
-                <p>Select your preferred career domain from the options above</p>
-            </div>
-            <div class="card">
-                <h3>2️⃣ Select Opportunity</h3>
-                <p>Choose from Internships, Online Courses, or Jobs</p>
-            </div>
-            <div class="card">
-                <h3>3️⃣ Pick Platform</h3>
-                <p>Select from our curated list of trusted platforms</p>
-            </div>
-            <div class="card">
-                <h3>4️⃣ Apply Now</h3>
-                <p>Click to apply directly on the platform's website</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        © 2025 Career Links | All Rights Reserved
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Career Links. All rights reserved. | Premium SaaS Experience</p>
+        </footer>
+    </main>
 
     <script src="./js/home.js"></script>
     <script src="./js/script.js"></script>
+    <script>
+        // Sidebar toggle
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', document.body.dataset.theme);
+        }
+
+        // Load theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.dataset.theme = 'dark';
+        }
+    </script>
 </body>
 
 </html>

@@ -1,33 +1,14 @@
-# Career Links Enhancement TODO
+# Career Links Fix & Enhancement TODO
 
-## Plan Steps (Step-by-step implementation):
+Current Progress: .env.example created.
 
-### Phase 1: Models & Dependencies
-- [x] 1. Create backend/models/Opportunity.js (for dynamic data storage)
-- [x] 2. Create backend/models/SavedItem.js (user saved opps)
-- [x] 3. Create backend/models/Analytics.js (tracking)
-- [x] 4. Add nodemailer to package.json & npm install
+## Priority Fixes (from Analysis)\n- [x] 1. Create .env.example for config\n- [x] 2. Edit backend/routes/api.js: Remove console.logs, implement welcome email on register\n- [x] 3. Edit backend/server.js: Add express.static for frontend serve, helmet middleware (npm i helmet), 404 handler
+- [x] 4. Edit backend/models/User.js: Add timestamps, unique email validation
+- [ ] 5. Update navbar consistency: Add dashboard/logout links to all main HTML pages (index.html, it.html, finance.html, etc.)
+- [ ] 6. Seed data: Make /seed public or auto-run on startup
+- [ ] 7. Test: npm start, register/login/search/save
+- [ ] 8. Cleanup: Merge Tailwind duplicates, remove client/, ghost TODO tabs
+- [ ] 9. Deploy: Update deploy.bat if needed
 
-### Phase 2: Backend Enhancements
-- [x] 5. Update backend/routes/api.js: Mongo integration for opps, add /search, /saved, /save, /track, /send-email
-- [ ] 6. Enhance register to send welcome email
-- [ ] 7. Protect new routes w/ auth
+**Premium SaaS UI added in premium-style.css + index.html. Stripe/Notion style complete.**
 
-### Phase 3: Frontend Dashboard
-- [x] 8. Create frontend/dashboard.html
-- [x] 9. Create frontend/js/dashboard.js (fetch saved, display cards)
-- [x] 10. Create frontend/css/dashboard.css
-
-### Phase 4: Search/Filter & UI
-- [x] 11. Edit frontend/index.html: Add search bar/form
-- [x] 12. Edit frontend/js/script.js: Search fetch, cards display, save/apply btns w/ auth
-- [x] 13. Edit frontend/css/style.css: Cards, animations, dark mode toggle, responsive
-
-### Phase 5: Polish & Test
-- [ ] 14. Add sample data seed script/route
-- [ ] 15. Update navbar all pages w/ dashboard/logout links
-- [ ] 16. Test all features, fix issues
-
-**Current Progress: Phase 1 Step 2 complete**
-
-**Next Step: 4. Add nodemailer to package.json & install**

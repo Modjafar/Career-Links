@@ -27,16 +27,14 @@ router.post("/register", async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
 
-        console.log("Registration attempt:", { name, email, role });
+        // Log removed for production
 
         if (!name || !email || !password || !role) {
-            console.log("Missing required fields");
             return res.status(400).json({ message: "All fields are required" });
         }
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            console.log("User already exists:", email);
             return res.status(400).json({ message: "User already exists" });
         }
 
@@ -44,8 +42,7 @@ router.post("/register", async (req, res) => {
         const user = new User({ name, email, password: hashedPassword, role });
         await user.save();
 
-        console.log("User registered successfully:", email);
-        res.json({ message: "User registered successfully", userId: user._id });
+        // Send welcome email\n        const mailOptions = {\n            from: process.env.SMTP_USER,\n            to: email,\n            subject: `Welcome to Career Links, ${name}!`,\n            text: `Hi ${name},\\n\\nWelcome to Career Links! Start exploring internships, jobs, and courses.\\n\\nBest,\\nCareer Links Team`\n        };\n        transporter.sendMail(mailOptions).catch(console.error); // Fire-and-forget\n        \n        res.json({ message: "User registered successfully", userId: user._id });
     } catch (error) {
         console.error("Registration error:", error);
         res.status(500).json({ message: "Server error" });
@@ -57,7 +54,7 @@ router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        console.log("Login attempt:", { email });
+        // Log removed for production
 
         if (!email || !password) {
             return res.status(400).json({ success: false, message: "Email and password are required" });
@@ -227,19 +224,7 @@ router.get("/profile", authMiddleware, async (req, res) => {
     }
 });
 
-// Seed sample data
-router.post("/seed", authMiddleware, async (req, res) => {
-    try {
-        await seedMockOpportunities('internship', true, 'IT');
-        await seedMockOpportunities('internship', false, 'Finance');
-        await seedMockOpportunities('job', true, 'IT');
-        await seedMockOpportunities('course', true, 'Management');
-        await seedMockOpportunities('course', false, 'English');
-        res.json({ message: 'Sample data seeded' });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+// Public seed GET\nrouter.get("/seed", async (req, res) => {\n    try {\n        await seedMockOpportunities('internship', true, 'IT');\n        await seedMockOpportunities('internship', false, 'Finance');\n        await seedMockOpportunities('job', true, 'IT');\n        await seedMockOpportunities('course', true, 'Management');\n        await seedMockOpportunities('course', false, 'English');\n        res.json({ message: 'Sample data seeded (public)' });\n    } catch (error) {\n        res.status(500).json({ error: error.message });\n    }\n});\n\n// Auth protected seed (kept)\nrouter.post("/seed", authMiddleware, async (req, res) => {\n    try {\n        await seedMockOpportunities('internship', true, 'IT');\n        await seedMockOpportunities('internship', false, 'Finance');\n        await seedMockOpportunities('job', true, 'IT');\n        await seedMockOpportunities('course', true, 'Management');\n        await seedMockOpportunities('course', false, 'English');\n        res.json({ message: 'Sample data seeded' });\n    } catch (error) {\n        res.status(500).json({ error: error.message });\n    }\n});
 
 // Health
 router.get("/health", (req, res) => {
