@@ -5,6 +5,8 @@ const express = require("express");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 const morgan = require("morgan");
+const helmet = require("helmet");
+const path = require("path");
 const connectDB = require("./config/db");
 require("dotenv").config();
 
@@ -28,6 +30,7 @@ const authLimiter = rateLimit({
 });
 
 // Middleware
+app.use(helmet());
 app.use(morgan('dev'));
 app.use(limiter);
 app.use(express.json({ limit: '10mb' }));
@@ -35,6 +38,7 @@ app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true
 }));
+app.use(express.static(path.join(__dirname, "../frontend"))); // Serve frontend static
 
 // Connect DB
 connectDB();

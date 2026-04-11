@@ -1,0 +1,29 @@
+/* Domain Icon Classes - Move inline styles to CSS */
+
+.domain-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.domain-it,
+.domain-finance,
+.domain-mgmt,
+.domain-ecommerce,
+.domain-government,
+.domain-english {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.domain-ecommerce {
+    color: #ef4444;
+}
+
+.domain-government {
+    color: #8b5cf6;
+}
+
+.domain-english {
+    color: #06b6d4;
+}
