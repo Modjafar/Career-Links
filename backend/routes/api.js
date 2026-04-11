@@ -17,8 +17,32 @@ const router = express.Router();
 const registerValidation = [
     body('name').trim().notEmpty().withMessage('Name is required').escape(),
     body('email').trim().isEmail().withMessage('Valid email is required').normalizeEmail(),
-    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
+    body('password').trim().isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
     body('role').trim().isIn(['user', 'admin']).withMessage('Role must be user or admin')
+];
+
+const loginValidation = [
+    body('email').trim().isEmail().withMessage('Valid email is required').normalizeEmail(),
+    body('password').trim().notEmpty().withMessage('Password is required')
+];
+
+const saveValidation = [
+    body('opportunityId').optional().trim().escape(),
+    body('item').optional()
+];
+
+const trackValidation = [
+    body('page').optional().trim().escape(),
+    body('action').optional().trim().escape(),
+    body('domain').optional().trim().escape(),
+    body('itemTitle').optional().trim().escape(),
+    body('userId').optional().trim().escape()
+];
+
+const sendEmailValidation = [
+    body('to').trim().isEmail().withMessage('Valid recipient email is required').normalizeEmail(),
+    body('subject').trim().notEmpty().withMessage('Subject is required').escape(),
+    body('text').trim().notEmpty().withMessage('Text is required').escape()
 ];
 
 const searchValidation = [
@@ -43,7 +67,7 @@ function escapeRegex(value) {
 }
 
 // Nodemailer transporter (configure .env with SMTP_USER, SMTP_PASS)
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: process.env.SMTP_USER,
@@ -92,13 +116,12 @@ router.post("/register", registerValidation, async (req, res) => {
 });
 
 // Login
-router.post("/login", async (req, res) => {
+router.post("/login", loginValidation, async (req, res) => {
+    const validationError = handleValidation(req, res);
+    if (validationError) return;
+
     try {
         const { email, password } = req.body;
-
-        if (!email || !password) {
-            return res.status(400).json({ success: false, message: "Email and password are required" });
-        }
 
         const user = await User.findOne({ email });
         if (!user) {
@@ -233,10 +256,17 @@ router.get("/saved", authMiddleware, async (req, res) => {
 });
 
 // POST /api/save
-router.post("/save", authMiddleware, async (req, res) => {
+router.post("/save", authMiddleware, saveValidation, async (req, res) => {
+    const validationError = handleValidation(req, res);
+    if (validationError) return;
+
     try {
         const { opportunityId, item } = req.body;
-        const existing = await SavedItem.findOne({ userId: req.user.userId, opportunityId });
+        if (!opportunityId && !item) {
+            return res.status(400).json({ success: false, message: 'Opportunity ID or item is required' });
+        }
+
+        const existing = opportunityId ? await SavedItem.findOne({ userId: req.user.userId, opportunityId }) : null;
         if (existing) return res.status(400).json({ success: false, message: 'Already saved' });
 
         const savedItem = new SavedItem({ userId: req.user.userId, opportunityId, item });
@@ -260,7 +290,10 @@ router.delete("/saved/:id", authMiddleware, async (req, res) => {
 });
 
 // POST /api/track
-router.post("/track", async (req, res) => {
+router.post("/track", trackValidation, async (req, res) => {
+    const validationError = handleValidation(req, res);
+    if (validationError) return;
+
     try {
         const { page, action, domain, itemTitle, userId } = req.body;
         const track = new Analytics({ userId, page, action, domain, itemTitle });
@@ -272,7 +305,10 @@ router.post("/track", async (req, res) => {
 });
 
 // POST /api/send-email
-router.post("/send-email", async (req, res) => {
+router.post("/send-email", sendEmailValidation, async (req, res) => {
+    const validationError = handleValidation(req, res);
+    if (validationError) return;
+
     try {
         const { to, subject, text } = req.body;
         const mailOptions = {

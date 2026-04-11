@@ -48,7 +48,7 @@ app.use('/api', authLimiter, require("./routes/api"));
 
 // Health check (public)
 app.get('/api/health', (req, res) => {
-    res.json({ success: true, message: 'API Healthy' });
+    res.json({ success: true, data: { message: 'API Healthy', timestamp: new Date().toISOString() } });
 });
 
 // 404 handler
