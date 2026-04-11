@@ -1,4 +1,50 @@
-#Career Links
+# Career Links 🚀
 
-In today's competitive job market, students and fresh graduates face significant challenges in discovering relevant career opportunities, internships, and skill-building courses. Traditional search methods are fragmented across multiple websites, leading to information overload and missed opportunities. Career Links addresses this gap by creating a centralized, user-friendly platform that curates verified links to official career portals. 
-The importance of such platforms cannot be overstated: they democratize access to high-quality opportunities, provide domain-specific guidance (e.g., IT vs. Management), distinguish between paid/unpaid options, and support continuous learning through course recommendations. By integrating authentication for personalized experiences and responsive design for mobile accessibility, Career Links serves as an essential tool for career development in academic and professional contexts.
+## Quick Setup
+
+1. **Copy .env**:
+```
+cp .env.example .env
+```
+Edit `.env` with your MongoDB URI, JWT secret, Gmail SMTP (App Password).
+
+2. **Install & Run**:
+```
+npm install
+npm start
+```
+
+3. **Seed Data** (login first):
+```
+curl -X POST http://localhost:5000/api/seed \\
+  -H \"Authorization: Bearer YOUR_JWT_TOKEN\"
+```
+
+4. **Test Frontend**:
+- Open `frontend/index.html`
+- Register → Login → Search → Save → Dashboard
+
+## API Endpoints
+- `POST /api/register`, `/api/login`
+- `GET /api/search?q=dev&domain=IT`
+- `GET /api/internships?paid=true`
+- Protected: `/api/saved`, `/api/save`, `/api/profile`, `/api/seed`
+
+## Features
+- Auth (JWT + roles)
+- Search/Filter opps by domain/paid/type
+- Save to dashboard
+- Rate limited API
+- Email notifications
+- Dark mode + responsive
+
+## Project Structure
+```
+.
+├── backend/     # Node/Express/Mongo API
+├── frontend/    # HTML/CSS/JS UI
+├── client/      # React (future)
+└── docs/
+```
+
+**Server**: http://localhost:5000/api/health

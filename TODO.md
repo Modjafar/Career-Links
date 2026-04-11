@@ -1,33 +1,34 @@
-# Career Links Enhancement TODO
+# Career Links - BLACKBOXAI Enhancement Plan
 
-## Plan Steps (Step-by-step implementation):
+## Approved Priority Steps
 
-### Phase 1: Models & Dependencies
-- [x] 1. Create backend/models/Opportunity.js (for dynamic data storage)
-- [x] 2. Create backend/models/SavedItem.js (user saved opps)
-- [x] 3. Create backend/models/Analytics.js (tracking)
-- [x] 4. Add nodemailer to package.json & npm install
+### 1. Core Stability ✅ COMPLETE
+- [x] Fix auth middleware (token + role validation)
+- [x] Add rate limiting to API (100 req/15min global, 5/min auth)
+- [ ] Verify protected routes work
 
-### Phase 2: Backend Enhancements
-- [x] 5. Update backend/routes/api.js: Mongo integration for opps, add /search, /saved, /save, /track, /send-email
-- [ ] 6. Enhance register to send welcome email
-- [ ] 7. Protect new routes w/ auth
+### 2. Environment Setup ✅ COMPLETE
+- [x] Create .env.example
+- [x] Update README.md with setup guide
 
-### Phase 3: Frontend Dashboard
-- [x] 8. Create frontend/dashboard.html
-- [x] 9. Create frontend/js/dashboard.js (fetch saved, display cards)
-- [x] 10. Create frontend/css/dashboard.css
+### 3. Auth Features (Phase 2) ✅ COMPLETE
+- [x] Add email on register
+- [x] Ensure full auth protection (middleware + rate-limit)
 
-### Phase 4: Search/Filter & UI
-- [x] 11. Edit frontend/index.html: Add search bar/form
-- [x] 12. Edit frontend/js/script.js: Search fetch, cards display, save/apply btns w/ auth
-- [x] 13. Edit frontend/css/style.css: Cards, animations, dark mode toggle, responsive
+### 4. Frontend Consistency ✅ TODO
+- [ ] Update all HTML navbars
 
-### Phase 5: Polish & Test
-- [ ] 14. Add sample data seed script/route
-- [ ] 15. Update navbar all pages w/ dashboard/logout links
-- [ ] 16. Test all features, fix issues
+### 5. Cleanup (Low) ✅ TODO
+- [ ] Remove unnecessary console.log
 
-**Current Progress: Phase 1 Step 2 complete**
+### 6. Testing ✅ TODO
+- [ ] Test auth/API endpoints
+- [ ] End-to-end verification
 
-**Next Step: 4. Add nodemailer to package.json & install**
+### 7. Final Steps ✅ TODO
+- [ ] Fix seed data access
+- [ ] Project runs E2E
+
+**Progress: Backend COMPLETE (Priorities 1-3)**
+
+**Next: Frontend navbars + Final tests (Priority 4-7)**
