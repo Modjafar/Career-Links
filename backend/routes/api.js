@@ -43,7 +43,7 @@ function escapeRegex(value) {
 }
 
 // Nodemailer transporter (configure .env with SMTP_USER, SMTP_PASS)
-const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransporter({
     service: 'gmail',
     auth: {
         user: process.env.SMTP_USER,
@@ -59,28 +59,15 @@ router.post("/register", registerValidation, async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
 
-<<<<<<< HEAD
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ success: false, message: "User already exists" });
-=======
-        // Log removed for production
-
-        if (!name || !email || !password || !role) {
-            return res.status(400).json({ message: "All fields are required" });
-        }
-
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            return res.status(400).json({ message: "User already exists" });
->>>>>>> eead07bad73863d49e11445f994623adb7ab7476
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({ name, email, password: hashedPassword, role });
         await user.save();
 
-<<<<<<< HEAD
         const mailOptions = {
             from: process.env.SMTP_USER,
             to: email,
@@ -99,9 +86,6 @@ router.post("/register", registerValidation, async (req, res) => {
                 token
             }
         });
-=======
-        // Send welcome email\n        const mailOptions = {\n            from: process.env.SMTP_USER,\n            to: email,\n            subject: `Welcome to Career Links, ${name}!`,\n            text: `Hi ${name},\\n\\nWelcome to Career Links! Start exploring internships, jobs, and courses.\\n\\nBest,\\nCareer Links Team`\n        };\n        transporter.sendMail(mailOptions).catch(console.error); // Fire-and-forget\n        \n        res.json({ message: "User registered successfully", userId: user._id });
->>>>>>> eead07bad73863d49e11445f994623adb7ab7476
     } catch (error) {
         res.status(500).json({ success: false, message: "Server error" });
     }
@@ -112,11 +96,6 @@ router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
 
-<<<<<<< HEAD
-=======
-        // Log removed for production
-
->>>>>>> eead07bad73863d49e11445f994623adb7ab7476
         if (!email || !password) {
             return res.status(400).json({ success: false, message: "Email and password are required" });
         }
@@ -319,7 +298,6 @@ router.get("/profile", authMiddleware, async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
 // Seed sample data (protected)
 router.post("/seed", authMiddleware, async (req, res) => {
     try {
@@ -333,9 +311,6 @@ router.post("/seed", authMiddleware, async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 });
-=======
-// Public seed GET\nrouter.get("/seed", async (req, res) => {\n    try {\n        await seedMockOpportunities('internship', true, 'IT');\n        await seedMockOpportunities('internship', false, 'Finance');\n        await seedMockOpportunities('job', true, 'IT');\n        await seedMockOpportunities('course', true, 'Management');\n        await seedMockOpportunities('course', false, 'English');\n        res.json({ message: 'Sample data seeded (public)' });\n    } catch (error) {\n        res.status(500).json({ error: error.message });\n    }\n});\n\n// Auth protected seed (kept)\nrouter.post("/seed", authMiddleware, async (req, res) => {\n    try {\n        await seedMockOpportunities('internship', true, 'IT');\n        await seedMockOpportunities('internship', false, 'Finance');\n        await seedMockOpportunities('job', true, 'IT');\n        await seedMockOpportunities('course', true, 'Management');\n        await seedMockOpportunities('course', false, 'English');\n        res.json({ message: 'Sample data seeded' });\n    } catch (error) {\n        res.status(500).json({ error: error.message });\n    }\n});
->>>>>>> eead07bad73863d49e11445f994623adb7ab7476
 
 // Health
 router.get("/health", (req, res) => {
